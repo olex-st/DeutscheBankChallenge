@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    //keys
+    <string name="key_bundle_user_id">key_bundle_user_id</string>
+    <string name="key_navigation_user_id">userId</string>
+    <string name="key_bundle_post_id">key_bundle_post_id</string>
+    <string name="key_navigation_post_id">postId</string>
+
+    //user messages
+    <string name="please_enter_usedid">Please enter UsedId</string>
+
+    //UI
+    <string name="all">All</string>
+    <string name="fav">Fav</string>
+    <string name="userid">UserId</string>
+    <string name="login">Login</string>
+    <string name="fav_toggle">FAV</string>
+    <string name="login_title">Login</string>
+    <string name="my_posts_title">My posts</string>
+    <string name="comments_title">Comments</string>
+
+</resources>

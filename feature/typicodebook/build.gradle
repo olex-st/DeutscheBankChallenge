@@ -42,10 +42,15 @@ dependencies {
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
 
-    androidTestImplementation(libs.junit4)
-    androidTestImplementation(libs.androidx.test.core)
-    androidTestImplementation(libs.androidx.test.ext)
-    androidTestImplementation(libs.androidx.test.espresso.core)
-    androidTestImplementation(libs.androidx.fragment.fragment.testing)
-    androidTestImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.junit4)
+    testImplementation(libs.kotlinx.coroutines.test)
+
+
+//    androidTestImplementation(libs.junit4)
+//    androidTestImplementation(libs.junit4)
+//    androidTestImplementation(libs.androidx.test.core)
+//    androidTestImplementation(libs.androidx.test.ext)
+//    androidTestImplementation(libs.androidx.test.espresso.core)
+//    androidTestImplementation(libs.androidx.fragment.fragment.testing)
+//    androidTestImplementation(libs.kotlinx.coroutines.test)
 }

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/posts_navigation"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.typicodebook.fragment.LoginFragment"
+        android:label="f_login"
+        tools:layout="@layout/f_login">
+        <action
+            android:id="@+id/action_loginFragment_to_postsFragment"
+            app:destination="@id/postsFragment"
+            app:popUpTo="@id/posts_navigation"/>
+    </fragment>
+    <fragment
+        android:id="@+id/postsFragment"
+        android:name="com.example.typicodebook.fragment.PostsFragment"
+        android:label="f_posts"
+        tools:layout="@layout/f_posts">
+        <argument
+            android:name="userId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_postsFragment_to_commentsFragment"
+            app:destination="@id/commentsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/commentsFragment"
+        android:name="com.example.typicodebook.fragment.CommentsFragment"
+        android:label="f_comments"
+        tools:layout="@layout/f_comments">
+        <argument
+            android:name="postId"
+            app:argType="integer" />
+    </fragment>
+</navigation>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/teal_200"
+    android:padding="4dp"
+    android:layout_marginStart="28dp"
+    android:layout_marginBottom="2dp"
+    android:orientation="vertical">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/mtvUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/l_i_mtv_padding"
+        android:textAppearance="?attr/textAppearanceListItem"
+        tools:text="propertyType" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/mtvComment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/l_i_mtv_padding"
+        android:textAppearance="?attr/textAppearanceListItemSecondary"
+        tools:text="city" />
+</LinearLayout>

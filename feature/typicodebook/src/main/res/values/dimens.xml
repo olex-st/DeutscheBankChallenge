@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="l_i_mtv_padding">4dp</dimen>
+    <dimen name="mcv_margin">4dp</dimen>
+    <dimen name="rv_padding_start_end">4dp</dimen>
+    <dimen name="radio_margin">4dp</dimen>
+</resources>
