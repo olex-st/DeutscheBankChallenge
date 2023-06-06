@@ -1,0 +1,31 @@
+plugins {
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
+
+    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.hilt)
+}
+
+apply from: "./../../library.gradle"
+
+android {
+    namespace 'com.example.repository'
+}
+
+dependencies {
+    implementation project(":core:api")
+    implementation project(':core:database')
+    implementation project(":core:domain")
+
+    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.com.jakewharton.timber)
+
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+
+    testImplementation(libs.junit4)
+    androidTestImplementation(libs.junit4)
+    //    androidTestImplementation(libs.androidx.test.core)
+    androidTestImplementation(libs.androidx.test.ext)
+    androidTestImplementation(libs.androidx.test.espresso.core)
+}

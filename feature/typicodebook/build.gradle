@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
 
     alias(libs.plugins.androidx.navigation.safe.args.gradle.plugin)
@@ -8,42 +8,44 @@ plugins {
     alias(libs.plugins.hilt)
 }
 
-apply from: "./../library.gradle"
+apply from: "./../../library.gradle"
 
 android {
-    namespace 'com.example.deutschebankchallenge'
-
-    defaultConfig {
-        applicationId "com.example.deutschebankchallenge"
-        versionCode 1
-        versionName "1.0"
-    }
+    namespace 'com.example.typicodebook'
 
     buildFeatures {
         viewBinding true
     }
 }
 
-
 dependencies {
-    implementation project(":feature:typicodebook")
     implementation project(":core:domain")
-    implementation project(":core:repository")
 
     implementation(libs.com.google.android.material)
 
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.fragment.fragment.ktx)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+
+    implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.constraintlayout)
 
     implementation(libs.androidx.navigation.navigation.dynamic.features.fragment)
     implementation(libs.androidx.navigation.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.navigation.ui.ktx)
 
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
+    implementation(libs.androidx.recyclerview)
     implementation(libs.com.jakewharton.timber)
 
-    testImplementation(libs.junit4)
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+
     androidTestImplementation(libs.junit4)
+    androidTestImplementation(libs.androidx.test.core)
     androidTestImplementation(libs.androidx.test.ext)
     androidTestImplementation(libs.androidx.test.espresso.core)
+    androidTestImplementation(libs.androidx.fragment.fragment.testing)
+    androidTestImplementation(libs.kotlinx.coroutines.test)
 }

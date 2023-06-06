@@ -1,0 +1,108 @@
+[versions]
+material = "1.4.0"
+
+androidDesugarJdkLibs = "1.1.5"
+androidGradlePlugin = "8.0.0"
+
+androidxAppCompat = "1.2.0"
+androidxCore = "1.7.0"
+androidx-databinding = "7.3.1"
+androidxEspresso = "3.4.0"
+androidxLifecycle = "2.4.0"
+androidxNavigation = "2.5.3"
+androidxTestCore = "1.5.0-alpha02"
+androidxTestExt = "1.1.3"
+#androidxTestRunner = "1.4.0"
+#androidxTestRules = "1.4.0"
+#androidxTracing = "1.1.0"
+#androidxUiAutomator = "2.2.0"
+com-github-bumptech-glide = "4.12.0"
+hilt = "2.44"
+hiltExt = "1.0.0"
+junit4 = "4.13.2"
+kotlin = "1.7.20"
+kotlinxCoroutines = "1.6.4"
+ksp = "1.7.10-1.0.6"
+okhttp = "4.10.0"
+#retrofit = "2.9.0"
+#retrofitKotlinxSerializationJson = "0.8.0"
+room = "2.4.3"
+
+[libraries]
+android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugarJdkLibs" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidxAppCompat" }
+androidx-constraintlayout = "androidx.constraintlayout:constraintlayout:2.1.4"
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCore" }
+androidx-databinding-databinding-adapters = { module = "androidx.databinding:databinding-adapters", version.ref = "androidx-databinding" }
+androidx-databinding-databinding-common = { module = "androidx.databinding:databinding-common", version.ref = "androidx-databinding" }
+androidx-databinding-databinding-compiler = { module = "androidx.databinding:databinding-compiler", version.ref = "androidx-databinding" }
+androidx-databinding-databinding-ktx = { module = "androidx.databinding:databinding-ktx", version.ref = "androidx-databinding" }
+androidx-databinding-databinding-runtime = { module = "androidx.databinding:databinding-runtime", version.ref = "androidx-databinding" }
+androidx-databinding-viewbinding = { module = "androidx.databinding:viewbinding", version.ref = "androidx-databinding" }
+
+androidx-fragment-fragment-ktx = "androidx.fragment:fragment-ktx:1.4.1"
+androidx-fragment-fragment-testing = "androidx.fragment:fragment-testing:1.4.0"
+
+androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "androidxLifecycle" }
+androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "androidxLifecycle" }
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "androidxLifecycle" }
+
+androidx-navigation-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "androidxNavigation" }
+androidx-navigation-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "androidxNavigation" }
+androidx-navigation-navigation-dynamic-features-fragment = { module = "androidx.navigation:navigation-dynamic-features-fragment", version.ref = "androidxNavigation" }
+#androidx-navigation-navigation-safe-args-gradle-plugin = { module = "androidx.navigation:navigation-safe-args-gradle-plugin", version.ref = "androidxNavigation" }
+
+#androidx-navigation-testing = { group = "androidx.navigation", name = "navigation-testing", version.ref = "androidxNavigation" }
+androidx-recyclerview = "androidx.recyclerview:recyclerview:1.2.1"
+
+#androidx-savedstate-ktx = { group = "androidx.savedstate", name = "savedstate-ktx", version.ref= "androidxSavedState"}
+androidx-swiperefreshlayout = "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+androidx-test-core = { group = "androidx.test", name = "core", version.ref = "androidxTestCore" }
+androidx-test-ext = { group = "androidx.test.ext", name = "junit-ktx", version.ref = "androidxTestExt" }
+androidx-test-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "androidxEspresso" }
+#androidx-test-runner = { group = "androidx.test", name = "runner", version.ref = "androidxTestRunner" }
+#androidx-test-rules = { group = "androidx.test", name = "rules", version.ref = "androidxTestRules" }
+#androidx-test-uiautomator = { group = "androidx.test.uiautomator", name = "uiautomator", version.ref = "androidxUiAutomator" }
+
+com-google-android-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
+com-github-bumptech-glide = { module = "com.github.bumptech.glide:glide", version.ref = "com-github-bumptech-glide" }
+com-github-bumptech-glide-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "com-github-bumptech-glide" }
+
+com-jakewharton-timber = "com.jakewharton.timber:timber:5.0.1"
+com-opencsv = "com.opencsv:opencsv:4.6"
+com-squareup-retrofit2-retrofit = "com.squareup.retrofit2:retrofit:2.9.0"
+com-squareup-retrofit2-adapter-rxjava2 = "com.squareup.retrofit2:adapter-rxjava2:2.4.0"
+com-squareup-retrofit2-converter-gson = "com.squareup.retrofit2:converter-gson:2.4.0"
+
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+#hilt-ext-work = { group = "androidx.hilt", name = "hilt-work", version.ref = "hiltExt" }
+#hilt-ext-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "hiltExt" }
+#hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "hilt" }
+junit4 = { group = "junit", name = "junit", version.ref = "junit4" }
+kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk8", version.ref = "kotlin" }
+kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutines" }
+kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinxCoroutines" }
+okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
+#retrofit-core = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+#retrofit-kotlin-serialization = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlinx-serialization-converter", version.ref = "retrofitKotlinxSerializationJson" }
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+
+android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+androidx-navigation-safe-args-gradle-plugin = { id = "androidx.navigation.safeargs.kotlin", version.ref = "androidxNavigation"}
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+
+#kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+#android-test = { id = "com.android.test", version.ref = "androidGradlePlugin" }

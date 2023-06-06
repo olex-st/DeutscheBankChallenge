@@ -13,4 +13,9 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "DeutscheBankChallenge"
-include ':app'
+include(":app")
+include(":core:api")
+include(":feature:typicodebook")
+include(":core:repository")
+include(":core:domain")
+include(":core:database")
