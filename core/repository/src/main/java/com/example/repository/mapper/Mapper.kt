@@ -36,8 +36,8 @@ class Mapper @Inject constructor() : BaseMapper {
 
     override fun mapPostResponseToPostEntity(postResponse: PostResponse): PostEntity {
         return PostEntity(
-            postResponse.id,
             postResponse.userId,
+            postResponse.id,
             postResponse.title ?: "",
             postResponse.body ?: ""
         )

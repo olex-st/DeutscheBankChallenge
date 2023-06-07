@@ -3,8 +3,8 @@ package com.example.repository
 import com.example.api.RemoteDataSource
 import com.example.database.LocalDataSource
 import com.example.domain.UserNotExistException
+import com.example.domain.model.Comment
 import com.example.domain.model.Post
-import com.example.domain.model.Text
 import com.example.domain.model.User
 import com.example.domain.repository.PostsBaseRepository
 import com.example.repository.mapper.BaseMapper
@@ -38,7 +38,7 @@ class PostsRepository @Inject constructor(
         }
     }
 
-    override suspend fun getPostsFlow(userId: String, favoritesOnly: Boolean): Flow<List<Post>> {
+    override suspend fun getPostsFlow(userId: String): Flow<List<Post>> {
         return withContext(dispatcher) {
             localDataSource.getAllPostsFlow(userId).map {
                 it.map { post ->
@@ -49,24 +49,26 @@ class PostsRepository @Inject constructor(
     }
 
     override suspend fun fetchPosts(userId: String) {
-        val remotePosts = remoteDataSource.getPosts(userId)
-            .map {
-                mapper.mapPostResponseToPostEntity(it)
-            }
-        localDataSource.insertPosts(remotePosts)
+        withContext(dispatcher) {
+            val entityPosts = remoteDataSource.getPosts(userId)
+                .map {
+                    mapper.mapPostResponseToPostEntity(it)
+                }
+            localDataSource.insertPosts(entityPosts)
+        }
     }
 
-    override suspend fun getComments(postId: String): List<Text> {
+    override suspend fun getComments(postId: String): List<Comment> {
         return withContext(dispatcher) {
-            val comments = remoteDataSource.getComments(postId).map {
+            remoteDataSource.getComments(postId).map {
                 mapper.mapCommentResponseToComment(it)
             }
-            val post = localDataSource.getPost(postId)
-            val texts = mutableListOf<Text>()
-            texts.apply {
-                add(mapper.mapPostEntityToPost(post))
-                addAll(comments)
-            }
+        }
+    }
+
+    override suspend fun getPost(postId: String): Post {
+        return withContext(dispatcher) {
+            mapper.mapPostEntityToPost(localDataSource.getPost(postId))
         }
     }
 }
