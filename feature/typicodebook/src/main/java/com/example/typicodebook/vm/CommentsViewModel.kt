@@ -54,7 +54,6 @@ class CommentsViewModel @Inject constructor(
         toggleJob?.cancel()
         toggleJob = viewModelScope.launch {
             try {
-                _uiState.value = CommentsUiState.Fetching(isFetching = true)
                 toggleFavoriteUseCase(postId, isChecked)
             } catch (cancellationException: CancellationException) {
                 throw cancellationException
