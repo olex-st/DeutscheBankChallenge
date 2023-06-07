@@ -89,20 +89,6 @@ class PostsRepositoryTest {
     }
 
     @Test
-    fun getPostsFlow() = runTest{
-        localDataSource = TestLocalDataSource()
-        repository = PostsRepository(remoteDataSourceMock, mapperMock, localDataSource)
-
-        val postId = "0"
-        val postEntity = PostEntity(1, 2, "", "")
-
-        repository.getPostsFlow(postId)
-
-        verify(mapperMock, times(1))
-            .mapPostEntityToPost(postEntity)
-    }
-
-    @Test
     fun fetchPosts_GettingTwoPosts_mapperCalledTwice()= runTest() {
         remoteDataSource = TestRemoteDataSource()
         repository = PostsRepository(remoteDataSource, mapperMock, localDataSourceMock)

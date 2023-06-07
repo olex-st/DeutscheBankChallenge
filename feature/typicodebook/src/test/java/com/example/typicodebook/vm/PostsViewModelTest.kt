@@ -1,6 +1,5 @@
 package com.example.typicodebook.vm
 
-import com.example.domain.repository.PostsBaseRepository
 import com.example.typicodebook.fake.TestFetchPostsUseCase
 import com.example.typicodebook.fake.TestGetPostsFlowUseCase
 import com.example.typicodebook.fake.TestToggleFavoriteUseCase
@@ -16,16 +15,11 @@ import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import org.mockito.Mock
-import org.mockito.Mockito.mock
 
 class PostsViewModelTest {
 
     @get:Rule
     val mainDispatcherRule = MainDispatcherRule()
-
-    @Mock
-    private lateinit var testPostsRepository: PostsBaseRepository
 
     private lateinit var testGetPostsFlowUseCase: TestGetPostsFlowUseCase
     private lateinit var testFetchPostsUseCase: TestFetchPostsUseCase
@@ -35,11 +29,10 @@ class PostsViewModelTest {
 
     @Before
     fun setUp() {
-        testPostsRepository = mock(PostsBaseRepository::class.java)
 
-        testGetPostsFlowUseCase = TestGetPostsFlowUseCase(testPostsRepository)
-        testFetchPostsUseCase = TestFetchPostsUseCase(testPostsRepository)
-        testToggleFavoriteUseCase = TestToggleFavoriteUseCase(testPostsRepository)
+        testGetPostsFlowUseCase = TestGetPostsFlowUseCase()
+        testFetchPostsUseCase = TestFetchPostsUseCase()
+        testToggleFavoriteUseCase = TestToggleFavoriteUseCase()
 
         postsViewModel = PostsViewModel(
             getPostsFlowUseCase = testGetPostsFlowUseCase,
