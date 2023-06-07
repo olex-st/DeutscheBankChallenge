@@ -2,10 +2,10 @@ package com.example.typicodebook.vm
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.domain.GetCommentsUseCase
-import com.example.domain.ToggleFavoriteUseCase
 import com.example.domain.model.Comment
 import com.example.domain.model.Post
+import com.example.domain.usecase.base.BaseGetCommentsUseCase
+import com.example.domain.usecase.base.BaseToggleFavoriteUseCase
 import com.example.typicodebook.model.CommentUi
 import com.example.typicodebook.state.CommentsUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -19,8 +19,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CommentsViewModel @Inject constructor(
-    private val getCommentsUseCase: GetCommentsUseCase,
-    private val toggleFavoriteUseCase: ToggleFavoriteUseCase,
+    private val getCommentsUseCase: BaseGetCommentsUseCase,
+    private val toggleFavoriteUseCase: BaseToggleFavoriteUseCase,
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow<CommentsUiState>(CommentsUiState.Success(emptyList()))

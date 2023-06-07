@@ -2,10 +2,10 @@ package com.example.typicodebook.vm
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.domain.FetchPostsUseCase
-import com.example.domain.GetPostsFlowUseCase
-import com.example.domain.ToggleFavoriteUseCase
 import com.example.domain.model.Post
+import com.example.domain.usecase.base.BaseFetchPostsUseCase
+import com.example.domain.usecase.base.BaseGetPostsFlowUseCase
+import com.example.domain.usecase.base.BaseToggleFavoriteUseCase
 import com.example.typicodebook.model.PostUi
 import com.example.typicodebook.state.FavoriteButtonsUiState
 import com.example.typicodebook.state.PostsUiState
@@ -22,9 +22,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PostsViewModel @Inject constructor(
-    private val getPostsFlowUseCase: GetPostsFlowUseCase,
-    private val fetchPostsUseCase: FetchPostsUseCase,
-    private val toggleFavoriteUseCase: ToggleFavoriteUseCase,
+    private val getPostsFlowUseCase: BaseGetPostsFlowUseCase,
+    private val fetchPostsUseCase: BaseFetchPostsUseCase,
+    private val toggleFavoriteUseCase: BaseToggleFavoriteUseCase,
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow<PostsUiState>(PostsUiState.Success(emptyList()))
@@ -64,10 +64,10 @@ class PostsViewModel @Inject constructor(
         }
     }
 
-    fun subscribeToPosts(userId: String, favoritesOnly: Boolean) {
+    fun subscribeToPosts(userId: String) {
         subscribeJob?.cancel()
         subscribeJob = viewModelScope.launch {
-            getPostsFlowUseCase(userId, favoritesOnly)
+            getPostsFlowUseCase(userId)
                 .combine(uiButtonsState) { posts, filterState ->
                     if (filterState == FavoriteButtonsUiState.FAV_POSTS_ONLY) {
                         posts.filter { it.favorite }
@@ -83,7 +83,10 @@ class PostsViewModel @Inject constructor(
                     }
                 }
                 .collect { list ->
-                    val postsUi = list.map { it.asPostUi() }
+                    val postsUi = list.map {
+                        //todo: move to mapper
+                        it.asPostUi()
+                    }
                     _uiState.value = PostsUiState.Success(postsUi)
                 }
         }
@@ -106,5 +109,5 @@ class PostsViewModel @Inject constructor(
     }
 }
 
-//todo: move to mapper ?
+//todo: move to mapper
 internal fun Post.asPostUi() = PostUi(userId, id, title, body, favorite)

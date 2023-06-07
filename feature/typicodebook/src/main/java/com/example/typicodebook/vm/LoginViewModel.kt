@@ -2,7 +2,7 @@ package com.example.typicodebook.vm
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.domain.LoginUseCase
+import com.example.domain.usecase.base.BaseLoginUseCase
 import com.example.typicodebook.state.LoginUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
@@ -14,7 +14,7 @@ import javax.inject.Inject
 import kotlin.coroutines.cancellation.CancellationException
 
 @HiltViewModel
-class LoginViewModel @Inject constructor(private val loginUseCase: LoginUseCase) : ViewModel() {
+class LoginViewModel @Inject constructor(private val loginUseCase: BaseLoginUseCase) : ViewModel() {
 
     private val _uiState = MutableStateFlow<LoginUiState>(LoginUiState.Success())
     val uiState: StateFlow<LoginUiState> = _uiState.asStateFlow()

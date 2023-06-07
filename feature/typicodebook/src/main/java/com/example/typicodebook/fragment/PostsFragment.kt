@@ -63,7 +63,7 @@ class PostsFragment : Fragment() {
     }
 
     private fun fetchData() {
-        viewModel.subscribeToPosts(userId.toString(), false)
+        viewModel.subscribeToPosts(userId.toString())
         viewModel.fetchPosts(userId.toString())
     }
 
