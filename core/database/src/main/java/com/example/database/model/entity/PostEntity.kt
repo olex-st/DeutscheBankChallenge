@@ -4,10 +4,12 @@ import androidx.room.*
 
 @Entity(tableName = "post_table")
 data class PostEntity(
-    @PrimaryKey
-    val id: Int,
     @ColumnInfo(name = "user_id")
     val userId: Int,
+
+    @PrimaryKey
+    val id: Int,
+
     @ColumnInfo(name = "title")
     val title: String,
     @ColumnInfo(name = "body")
